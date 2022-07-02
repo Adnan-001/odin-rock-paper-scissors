@@ -45,17 +45,20 @@ function playRound(playerSelection, compSelection) {
 
 function userPlay() { 
     let userChoice =  prompt("Enter your choice!"); 
+    console.log(userChoice);
 
     if (userChoice === null) {
         console.log("Game Cancelled!");
         return;
     }
 
-    while (!validateUserChoice(userChoice)) 
+    while ( (userChoice === null)
+        ||  (validateUserChoice(userChoice) === false) )
     {
         alert("You did not enter a valid choice! Try Again..")
-        let userChoice =  prompt("Enter your choice!"); 
+        userChoice =  prompt("Enter your choice!"); 
     }
+    console.log(userChoice);
     return userChoice;
 }
 
@@ -88,7 +91,7 @@ function game() {
             userScore++;
             console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
         }
-        else if (result === 2) {
+        else if (roundResult === 2) {
             compScore++;
             console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
         }
@@ -104,5 +107,5 @@ function game() {
                 You lost: ${compScore} `);
 }
 
-game();
+// game();
 
