@@ -39,9 +39,43 @@ function playRound(playerSelection, compSelection) {
     return result;
 }
 
+function game() {
+    let playerOneScore = 0, playerTwoScore = 0;
+
+    for (let i = 0; i < 5; i++) 
+    {
+        
+    }
+}
+
+function userPlay() { 
+    let userChoice =  prompt("Enter your choice!"); 
+    
+    if (userChoice === null) {
+        console.log("Game Cancelled!");
+        return;
+    }
+
+    while (!validateUserChoice(userChoice)) 
+    {
+        alert("You did not enter a valid choice! Try Again..")
+        let userChoice =  prompt("Enter your choice!"); 
+    }
+}
+
+function validateUserChoice(choice) {
+
+    let userChoiceCap = choice.toUpperCase();
+    if (userChoiceCap === "ROCK"
+        ||  userChoiceCap === "PAPER"
+        ||  userChoiceCap === "SCISSORS" ) {
+
+        return true;
+    }
+    return false;
+}
 
 const computerSelection = computerPlay();
-console.log(computerSelection);
 const playerSelection = "pApEr";
 console.log(playRound(playerSelection, computerSelection));
 
