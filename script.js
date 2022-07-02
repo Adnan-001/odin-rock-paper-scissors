@@ -82,7 +82,7 @@ function game() {
         }
 
         const computerSelection = computerPlay();
-        let roundResult = playRoundRound(userSelection, computerSelection);
+        let roundResult = playRound(userSelection, computerSelection);
 
         if (roundResult === 1) {
             userScore++;
@@ -104,4 +104,5 @@ function game() {
                 You lost: ${compScore} `);
 }
 
+game();
 
