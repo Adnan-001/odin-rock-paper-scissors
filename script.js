@@ -45,7 +45,6 @@ function playRound(playerSelection, compSelection) {
 
 function userPlay() { 
     let userChoice =  prompt("Enter your choice!"); 
-    console.log(userChoice);
 
     while ( (userChoice !== null)
         &&  (!validateUserChoice(userChoice)) )
@@ -102,8 +101,9 @@ function game() {
 
     console.info("Final Results of this Game:");
     console.log(`Total Rounds played: 5
-                You won: ${userScore}
-                You lost: ${compScore} `);
+    You won: ${userScore}
+    You lost: ${compScore} 
+    Tie: ${5-userScore-compScore}`);
 }
 
 game();
