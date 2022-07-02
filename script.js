@@ -16,7 +16,11 @@ function computerPlay() {
 
 }
 
-function playRound(playerSelection, compSelection) {
+// return value explanation
+// 1 for user win
+// 2 for computer win
+// 0 for tie
+function playRound(playerSelection, compSelection) {    
     let result;
 
     if ( (playerSelection.toUpperCase() === "ROCK") && compSelection === "Scissors"
@@ -24,33 +28,24 @@ function playRound(playerSelection, compSelection) {
         ||  (playerSelection.toUpperCase() === "SCISSORS") && compSelection === "Paper" ) 
     {
 
-        result =   `You Won! ${playerSelection} beats ${compSelection}!`;
+        result =  1;
     }
     else if ( (playerSelection.toUpperCase() === "ROCK") && compSelection === "Paper"
         ||  (playerSelection.toUpperCase() === "PAPER") && compSelection === "Scissors"  
         ||  (playerSelection.toUpperCase() === "SCISSORS") && compSelection === "Rock" ) 
     {
-        result =   `You Lost! ${compSelection} beats ${playerSelection}!`;
+        result =  2;
     }
     else
     {
-        result = `It is a tie! you both went ${compSelection}!`;
+        result = 0;
     }
     return result;
 }
 
-function game() {
-    let playerOneScore = 0, playerTwoScore = 0;
-
-    for (let i = 0; i < 5; i++) 
-    {
-        
-    }
-}
-
 function userPlay() { 
     let userChoice =  prompt("Enter your choice!"); 
-    
+
     if (userChoice === null) {
         console.log("Game Cancelled!");
         return;
@@ -61,6 +56,7 @@ function userPlay() {
         alert("You did not enter a valid choice! Try Again..")
         let userChoice =  prompt("Enter your choice!"); 
     }
+    return userChoice;
 }
 
 function validateUserChoice(choice) {
@@ -75,8 +71,37 @@ function validateUserChoice(choice) {
     return false;
 }
 
-const computerSelection = computerPlay();
-const playerSelection = "pApEr";
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let userScore  = 0, compScore = 0;
+
+    for (let i = 0; i < 5; i++) 
+    {
+        const userSelection = userPlay();
+        if (userSelection === undefined) {
+            return;
+        }
+
+        const computerSelection = computerPlay();
+        let roundResult = playRoundRound(userSelection, computerSelection);
+
+        if (roundResult === 1) {
+            userScore++;
+            console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
+        }
+        else if (result === 2) {
+            compScore++;
+            console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
+        }
+        else
+        {
+            console.log(`It is a tie! you both went ${computerSelection}!`);
+        }
+    }
+
+    console.info("Final Results of this Game:");
+    console.log(`Total Rounds played: 5
+                You won: ${userScore}
+                You lost: ${compScore} `);
+}
 
 
