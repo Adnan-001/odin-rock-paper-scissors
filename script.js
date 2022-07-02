@@ -47,18 +47,17 @@ function userPlay() {
     let userChoice =  prompt("Enter your choice!"); 
     console.log(userChoice);
 
-    if (userChoice === null) {
-        console.log("Game Cancelled!");
-        return;
-    }
-
-    while ( (userChoice === null)
-        ||  (validateUserChoice(userChoice) === false) )
+    while ( (userChoice !== null)
+        &&  (!validateUserChoice(userChoice)) )
     {
         alert("You did not enter a valid choice! Try Again..")
         userChoice =  prompt("Enter your choice!"); 
     }
     console.log(userChoice);
+    if (userChoice === null) {
+        console.log("Game Cancelled!");
+        return;
+    }
     return userChoice;
 }
 
@@ -107,5 +106,5 @@ function game() {
                 You lost: ${compScore} `);
 }
 
-// game();
+game();
 
