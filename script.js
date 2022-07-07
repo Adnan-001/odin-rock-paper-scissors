@@ -114,11 +114,16 @@ function game(userSelection) {
         let roundResult = playRound(userSelection, computerSelection);
 
         if (roundResult === 1) {
-            userScore++;
+            // userScore++;
+
+            userScoreBoard.textContent = +userScoreBoard.textContent + 1;
+
             console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
         }
         else if (roundResult === 2) {
-            compScore++;
+            // compScore++;
+
+            compScoreBoard.textContent = +compScoreBoard.textContent + 1;
             console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
         }
         else
@@ -137,6 +142,9 @@ function game(userSelection) {
 // userPlay();
 
 const userChoiceList = document.querySelectorAll(".player-selection button");
+
+const userScoreBoard = document.querySelector(".player-score .number");
+const compScoreBoard = document.querySelector(".comp-score .number");
 
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
