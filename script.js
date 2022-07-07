@@ -103,8 +103,6 @@ function game(userSelection) {
 
     if (+userScoreBoard.textContent < 5 && parseInt(compScoreBoard.textContent) < 5)
     {
-        console.log('games-played:', gamesPlayed++);
-
         if (userSelection === undefined) {
             return;
         }
@@ -117,17 +115,18 @@ function game(userSelection) {
 
             userScoreBoard.textContent = +userScoreBoard.textContent + 1;
 
-            console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
+            roundResultInfo.textContent = `You Won! ${userSelection} beats ${computerSelection}!`;
         }
         else if (roundResult === 2) {
             // compScore++;
 
             compScoreBoard.textContent = +compScoreBoard.textContent + 1;
-            console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
+
+            roundResultInfo.textContent = `You Lost! ${computerSelection} beats ${userSelection}!`;
         }
         else
         {
-            console.log(`It is a tie! you both went ${computerSelection}!`);
+            roundResultInfo.textContent = `It is a tie! you both went ${computerSelection}!`;
         }
     }
 
@@ -141,7 +140,7 @@ const userChoiceList = document.querySelectorAll(".player-selection button");
 const userScoreBoard = document.querySelector(".player-score .number");
 const compScoreBoard = document.querySelector(".comp-score .number");
 
-let gamesPlayed = 0;
+const roundResultInfo = document.querySelector('.round-result');
 
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
