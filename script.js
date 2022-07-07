@@ -44,20 +44,31 @@ function playRound(playerSelection, compSelection) {
 }
 
 function userPlay() { 
-    let userChoice =  prompt("Enter your choice!"); 
+    // let userChoice =  prompt("Enter your choice!"); 
 
-    while ( (userChoice !== null)
-        &&  (!validateUserChoice(userChoice)) )
-    {
-        alert("You did not enter a valid choice! Try Again..")
-        userChoice =  prompt("Enter your choice!"); 
-    }
-    console.log(userChoice);
-    if (userChoice === null) {
-        console.log("Game Cancelled!");
-        return;
-    }
-    return userChoice;
+    // while ( (userChoice !== null)
+    //     &&  (!validateUserChoice(userChoice)) )
+    // {
+    //     alert("You did not enter a valid choice! Try Again..")
+    //     userChoice =  prompt("Enter your choice!"); 
+    // }
+    // console.log(userChoice);
+    // if (userChoice === null) {
+    //     console.log("Game Cancelled!");
+    //     return;
+    // }
+    // return userChoice;
+
+    // const userChoiceList = document.querySelectorAll(".player-selection button");
+
+    // userChoiceList.forEach(btn => {
+    //     btn.addEventListener('click', (e) => {
+    //         let choiceMade = e.target.textContent.trim();
+    //         console.log(choiceMade);
+
+    //         game(choiceMade);
+    //     })
+    // });
 }
 
 function validateUserChoice(choice) {
@@ -72,12 +83,29 @@ function validateUserChoice(choice) {
     return false;
 }
 
-function game() {
+function showResult(roundResult) {
+    if (roundResult === 1) {
+        // userScore++;
+        console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
+    }
+    else if (roundResult === 2) {
+        // compScore++;
+        console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
+    }
+    else
+    {
+        console.log(`It is a tie! you both went ${computerSelection}!`);
+    }
+}
+
+function game(userSelection) {
     let userScore  = 0, compScore = 0;
 
-    for (let i = 0; i < 5; i++) 
+    //for (let i = 0; i < 5; i++) 
     {
-        const userSelection = userPlay();
+        // const userSelection = userPlay();
+        // console.log('in here', userSelection);
+
         if (userSelection === undefined) {
             return;
         }
@@ -99,12 +127,26 @@ function game() {
         }
     }
 
-    console.info("Final Results of this Game:");
-    console.log(`Total Rounds played: 5
-    You won: ${userScore}
-    You lost: ${compScore} 
-    Tie: ${5-userScore-compScore}`);
+    // console.info("Final Results of this Game:");
+    // console.log(`Total Rounds played: 5
+    // You won: ${userScore}
+    // You lost: ${compScore} 
+    // Tie: ${5-userScore-compScore}`);
 }
 
-game();
+// userPlay();
+
+const userChoiceList = document.querySelectorAll(".player-selection button");
+
+userChoiceList.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        let choiceMade = e.target.textContent.trim();
+        // console.log(choiceMade);
+
+        game(choiceMade);
+        
+    })
+});
+
+
 
