@@ -83,18 +83,30 @@ function validateUserChoice(choice) {
     return false;
 }
 
-function showResult(roundResult) {
+function showRoundResults(roundResult, userSelection, computerSelection) {
     if (roundResult === 1) {
-        // userScore++;
-        console.log(`You Won! ${userSelection} beats ${computerSelection}!`);
+
+        userScoreBoard.textContent = +userScoreBoard.textContent + 1;
+
+        roundResultInfo.textContent = `You Won! ${userSelection} beats ${computerSelection}!`;
     }
     else if (roundResult === 2) {
-        // compScore++;
-        console.log(`You Lost! ${computerSelection} beats ${userSelection}!`);
+
+        compScoreBoard.textContent = +compScoreBoard.textContent + 1;
+
+        roundResultInfo.textContent = `You Lost! ${computerSelection} beats ${userSelection}!`;
     }
     else
     {
-        console.log(`It is a tie! you both went ${computerSelection}!`);
+        roundResultInfo.textContent = `It is a tie! you both went ${computerSelection}!`;
+    }
+}
+
+function showGameResults(userPoints) {
+    if (userPoints === 5) {
+        finalResultDiv.textContent = 'Congrats you won the Game!';
+    } else {
+        finalResultDiv.textContent = 'Ops you lost, Better Luck Next Time!';
     }
 }
 
@@ -110,27 +122,15 @@ function game(userSelection) {
         const computerSelection = computerPlay();
         let roundResult = playRound(userSelection, computerSelection);
 
-        if (roundResult === 1) {
-            // userScore++;
+        showRoundResults(roundResult, userSelection, computerSelection);
 
-            userScoreBoard.textContent = +userScoreBoard.textContent + 1;
-
-            roundResultInfo.textContent = `You Won! ${userSelection} beats ${computerSelection}!`;
-        }
-        else if (roundResult === 2) {
-            // compScore++;
-
-            compScoreBoard.textContent = +compScoreBoard.textContent + 1;
-
-            roundResultInfo.textContent = `You Lost! ${computerSelection} beats ${userSelection}!`;
-        }
-        else
-        {
-            roundResultInfo.textContent = `It is a tie! you both went ${computerSelection}!`;
-        }
     }
-
-
+    
+    if (+userScoreBoard.textContent === 5 || 
+        +compScoreBoard.textContent ===5)
+    {
+        showGameResults(parseInt(userScoreBoard.textContent));
+    }
 }
 
 // userPlay();
@@ -142,13 +142,13 @@ const compScoreBoard = document.querySelector(".comp-score .number");
 
 const roundResultInfo = document.querySelector('.round-result');
 
+const finalResultDiv = document.querySelector('.final-result');
+
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
         let choiceMade = e.target.textContent.trim();
-        // console.log(choiceMade);
 
-        game(choiceMade);
-        
+        game(choiceMade);        
     })
 });
 
