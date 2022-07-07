@@ -101,10 +101,9 @@ function showResult(roundResult) {
 function game(userSelection) {
     let userScore  = 0, compScore = 0;
 
-    //for (let i = 0; i < 5; i++) 
+    if (+userScoreBoard.textContent < 5 && parseInt(compScoreBoard.textContent) < 5)
     {
-        // const userSelection = userPlay();
-        // console.log('in here', userSelection);
+        console.log('games-played:', gamesPlayed++);
 
         if (userSelection === undefined) {
             return;
@@ -132,11 +131,7 @@ function game(userSelection) {
         }
     }
 
-    // console.info("Final Results of this Game:");
-    // console.log(`Total Rounds played: 5
-    // You won: ${userScore}
-    // You lost: ${compScore} 
-    // Tie: ${5-userScore-compScore}`);
+
 }
 
 // userPlay();
@@ -145,6 +140,8 @@ const userChoiceList = document.querySelectorAll(".player-selection button");
 
 const userScoreBoard = document.querySelector(".player-score .number");
 const compScoreBoard = document.querySelector(".comp-score .number");
+
+let gamesPlayed = 0;
 
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
