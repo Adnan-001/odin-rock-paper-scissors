@@ -43,45 +43,6 @@ function playRound(playerSelection, compSelection) {
     return result;
 }
 
-function userPlay() { 
-    // let userChoice =  prompt("Enter your choice!"); 
-
-    // while ( (userChoice !== null)
-    //     &&  (!validateUserChoice(userChoice)) )
-    // {
-    //     alert("You did not enter a valid choice! Try Again..")
-    //     userChoice =  prompt("Enter your choice!"); 
-    // }
-    // console.log(userChoice);
-    // if (userChoice === null) {
-    //     console.log("Game Cancelled!");
-    //     return;
-    // }
-    // return userChoice;
-
-    // const userChoiceList = document.querySelectorAll(".player-selection button");
-
-    // userChoiceList.forEach(btn => {
-    //     btn.addEventListener('click', (e) => {
-    //         let choiceMade = e.target.textContent.trim();
-    //         console.log(choiceMade);
-
-    //         game(choiceMade);
-    //     })
-    // });
-}
-
-function validateUserChoice(choice) {
-
-    let userChoiceCap = choice.toUpperCase();
-    if (userChoiceCap === "ROCK"
-        ||  userChoiceCap === "PAPER"
-        ||  userChoiceCap === "SCISSORS" ) {
-
-        return true;
-    }
-    return false;
-}
 
 function showRoundResults(roundResult, userSelection, computerSelection) {
     if (roundResult === 1) {
@@ -111,7 +72,6 @@ function showGameResults(userPoints) {
 }
 
 function game(userSelection) {
-    let userScore  = 0, compScore = 0;
 
     if (+userScoreBoard.textContent < 5 && parseInt(compScoreBoard.textContent) < 5)
     {
@@ -127,21 +87,17 @@ function game(userSelection) {
     }
     
     if (+userScoreBoard.textContent === 5 || 
-        +compScoreBoard.textContent ===5)
+        +compScoreBoard.textContent === 5)
     {
         showGameResults(parseInt(userScoreBoard.textContent));
     }
 }
 
-// userPlay();
 
 const userChoiceList = document.querySelectorAll(".player-selection button");
-
 const userScoreBoard = document.querySelector(".player-score .number");
 const compScoreBoard = document.querySelector(".comp-score .number");
-
 const roundResultInfo = document.querySelector('.round-result');
-
 const finalResultDiv = document.querySelector('.final-result');
 
 userChoiceList.forEach(btn => {
