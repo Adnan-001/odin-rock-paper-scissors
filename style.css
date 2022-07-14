@@ -15,8 +15,10 @@ body {
 .header .title, 
 .player-selection .selection-heading,
 .current-choices .txt,
-.round-result 
- {
+.round-result,
+.score-board .text,
+.score-board .number
+{
     height: 40px;
     font-size: 32px;
     font-weight: 900;
@@ -109,4 +111,35 @@ body {
 
     background-color: #5D3F64;
     text-align: center;
+}
+
+.score-board {
+    margin-top: 30px;
+
+    background-color: #5D3F64;
+    display: flex;
+    justify-content: space-around;
+
+    /* height: 120px; */
+
+}
+
+.score-board .player-score,
+.score-board .comp-score {
+    height: 120px;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.score-board .number {
+    height: 60px;
+    width: 200px;
+
+    background-color: #402b45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
