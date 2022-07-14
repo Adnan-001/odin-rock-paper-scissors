@@ -12,7 +12,8 @@ body {
 
 }
 
-.header .title, .player-selection .selection-heading  {
+.header .title, .player-selection .selection-heading,
+.current-choices .txt  {
     height: 40px;
     font-size: 32px;
     font-weight: 900;
@@ -48,18 +49,50 @@ body {
 
 .player-selection button {
     height: 80px;
-    width: 120px;
+    width: 200px;
     border-radius: 12px;
 
     border: #5D3F64;
     background-color: #402b45;
     color: #E19825;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 900;
     
 }
 
 .choices {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 16px;
 }
+
+.current-choices {
+    margin-top: 30px;
+
+    height: 200px;
+    background-color: #5D3F64;
+    display: flex;
+    justify-content: space-around;
+
+    gap: 16px;
+
+}
+
+.current-choices .player-choice, .current-choices .comp-choice {
+    width: 300px;
+}
+
+.current-choices .icon
+{
+    /* background-image: url(./images/scissors.jpg); */
+    width: 300px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.current-choices .txt {
+    text-align: center;
+}
+
