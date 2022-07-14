@@ -12,8 +12,11 @@ body {
 
 }
 
-.header .title, .player-selection .selection-heading,
-.current-choices .txt  {
+.header .title, 
+.player-selection .selection-heading,
+.current-choices .txt,
+.round-result 
+ {
     height: 40px;
     font-size: 32px;
     font-weight: 900;
@@ -101,3 +104,9 @@ body {
     text-align: center;
 }
 
+.round-result {
+    margin-top: 30px;
+
+    background-color: #5D3F64;
+    text-align: center;
+}
