@@ -71,6 +71,28 @@ function showGameResults(userPoints) {
     }
 }
 
+function setIconsOnScreen(compSel, userSel) {
+    if (compSel === 'Rock') {
+        compChoiceIcon.style.backgroundImage = 'url(./images/rock.jpg)';
+    } 
+    else if (compSel === 'Paper') {
+        compChoiceIcon.style.backgroundImage = 'url(./images/paper.jpg)';
+    }
+    else {
+        compChoiceIcon.style.backgroundImage = 'url(./images/scissors.jpg)';        
+    }
+
+    if (userSel === 'Rock') {
+        userChoiceIcon.style.backgroundImage = 'url(./images/rock.jpg)';
+    } 
+    else if (userSel === 'Paper') {
+        userChoiceIcon.style.backgroundImage = 'url(./images/paper.jpg)';
+    }
+    else {
+        userChoiceIcon.style.backgroundImage = 'url(./images/scissors.jpg)';        
+    }
+}
+
 function game(userSelection) {
 
     if (+userScoreBoard.textContent < 5 && parseInt(compScoreBoard.textContent) < 5)
@@ -80,6 +102,9 @@ function game(userSelection) {
         }
 
         const computerSelection = computerPlay();
+
+        setIconsOnScreen(computerSelection, userSelection);
+
         let roundResult = playRound(userSelection, computerSelection);
 
         showRoundResults(roundResult, userSelection, computerSelection);
@@ -99,6 +124,9 @@ const userScoreBoard = document.querySelector(".player-score .number");
 const compScoreBoard = document.querySelector(".comp-score .number");
 const roundResultInfo = document.querySelector('.round-result');
 const finalResultDiv = document.querySelector('.final-result');
+
+const userChoiceIcon = document.querySelector(".player-choice .icon");
+const compChoiceIcon = document.querySelector(".comp-choice .icon");
 
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
