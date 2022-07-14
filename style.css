@@ -1,0 +1,36 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    /* background-image: url(./images/blue-paperboard-texture_1409-1329.jpg);
+    background-size: cover;
+    background-attachment: fixed; */
+
+    background-color: #402b45;
+}
+
+.header {
+    background-color: #5D3F64;
+
+}
+
+.header .title {
+    height: 80px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #E19825;
+
+}
+
+.title h1{
+    margin: 0;
+}
+
+.header .subtitle {
+    height: 40px;
+    color: #E7AD52;
+    font-size: 24px;
+    font-weight: 900;
+}
