@@ -4,10 +4,6 @@ body {
     margin: 0;
     padding: 0;
 
-    /* background-image: url(./images/blue-paperboard-texture_1409-1329.jpg);
-    background-size: cover;
-    background-attachment: fixed; */
-
     background-color: #402b45;
 }
 
@@ -16,21 +12,48 @@ body {
 
 }
 
-.header .title {
-    height: 80px;
+.header .title, .player-selection .selection-heading  {
+    height: 40px;
     font-size: 32px;
     font-weight: 900;
     color: #E19825;
 
+    /* margin-top: 16px;
+ */
 }
 
-.title h1{
-    margin: 0;
-}
 
-.header .subtitle {
-    height: 40px;
+.header .subtitle{
+    height: 30px;
     color: #E7AD52;
     font-size: 24px;
     font-weight: 900;
+}
+
+.header .title, .header .subtitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-selection {
+    margin-top: 30px;
+
+    height: 200px;
+    background-color: #5D3F64;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.player-selection button {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
 }
