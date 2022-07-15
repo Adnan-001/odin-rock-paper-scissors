@@ -1,8 +1,7 @@
 
 function computerPlay() {
     
-    let randNo = Math.floor(Math.random()*3);
-    
+    let randNo = Math.floor(Math.random()*3);    
     if (randNo === 0) {
         return 'Rock'; 
     }
