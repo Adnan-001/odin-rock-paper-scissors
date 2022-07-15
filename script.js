@@ -63,12 +63,19 @@ function showRoundResults(roundResult, userSelection, computerSelection) {
     }
 }
 
-function showGameResults(userPoints) {
+function showGameResults(userPoints) {   
+
     if (userPoints === 5) {
         finalResultDiv.textContent = 'Congrats you won the Game!';
     } else {
         finalResultDiv.textContent = 'Ops you lost, Better Luck Next Time!';
     }
+
+    const resDiv = document.querySelector('.game-result');
+    resDiv.style.display = 'flex';
+    window.scrollTo(0, document.body.scrollHeight);
+
+    // document.location.href = './page2.html';    
 }
 
 function setIconsOnScreen(compSel, userSel) {
@@ -123,10 +130,13 @@ const userChoiceList = document.querySelectorAll(".player-selection button");
 const userScoreBoard = document.querySelector(".player-score .number");
 const compScoreBoard = document.querySelector(".comp-score .number");
 const roundResultInfo = document.querySelector('.round-result');
-const finalResultDiv = document.querySelector('.final-result');
+const finalResultDiv = document.querySelector('.result-text');
 
 const userChoiceIcon = document.querySelector(".player-choice .icon");
 const compChoiceIcon = document.querySelector(".comp-choice .icon");
+const newGameBtn = document.querySelector('.game-result button');
+
+newGameBtn.addEventListener('click', (e) => window.location.reload());
 
 userChoiceList.forEach(btn => {
     btn.addEventListener('click', (e) => {
