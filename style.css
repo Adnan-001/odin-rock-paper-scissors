@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-    background-color: #5D3F64;
+    background-color: #402b45;
 
 }
 
@@ -25,12 +25,16 @@ body {
     font-weight: 900;
     color: #E19825;
 
-    /* margin-top: 16px;
- */
 }
 
+.player-selection .selection-heading {
+    text-decoration: underline #E7AD52;
+    /* padding-left: 8px; */
+    text-align: center;
+}
 
-.header .subtitle{
+.header .subtitle
+{
     height: 30px;
     color: #E7AD52;
     font-size: 24px;
@@ -44,7 +48,7 @@ body {
 }
 
 .player-selection {
-    margin-top: 8px;
+    margin-top: 16px;
 
     height: 150px;
     background-color: #5D3F64;
@@ -60,7 +64,8 @@ body {
     width: 200px;
     border-radius: 12px;
 
-    border: #5D3F64;
+    /* border: #402b45; */
+
     background-color: #402b45;
     color: #E19825;
     font-size: 32px;
@@ -75,7 +80,7 @@ body {
 }
 
 .current-choices {
-    margin-top: 8px;
+    /* margin-top: 8px; */
 
     height: 200px;
     background-color: #5D3F64;
@@ -114,6 +119,7 @@ body {
 
     background-color: #5D3F64;
     text-align: center;
+    color: #E7AD52;
 }
 
 .score-board {
@@ -123,8 +129,7 @@ body {
     display: flex;
     justify-content: space-around;
 
-    /* height: 120px; */
-
+    padding-bottom: 8px;
 }
 
 .score-board .player-score,
@@ -143,6 +148,7 @@ body {
     height: 60px;
     width: 200px;
     border-radius: 12px;
+    border: #E7AD52 2px solid;
 
     background-color: #402b45;
     display: flex;
@@ -150,11 +156,13 @@ body {
     align-items: center;
 }
 
-.game-result{
-    margin-top: 8px;
+.score-board .text{
+    text-decoration: underline  #E19825;
+}
 
+.game-result{
     height: 100px;
-    background-color: #5D3F64;
+    background-color: #402b45;
 
 
     display: flex;
@@ -183,3 +191,4 @@ body {
 
     flex-grow: 1;
 }
+
