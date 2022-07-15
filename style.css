@@ -17,7 +17,8 @@ body {
 .current-choices .txt,
 .round-result,
 .score-board .text,
-.score-board .number
+.score-board .number,
+.result-text
 {
     height: 40px;
     font-size: 32px;
@@ -52,7 +53,9 @@ body {
     justify-content: space-around;
 }
 
-.player-selection button {
+.player-selection button,
+.game-result button 
+ {
     height: 80px;
     width: 200px;
     border-radius: 12px;
@@ -142,4 +145,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.game-result{
+    margin-top: 30px;
+
+    height: 100px;
+    background-color: #5D3F64;
+
+
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 16px;
+
+   display: none;
+
+}
+
+.game-result  .result-text{
+    /* background-color: aqua; */
+
+    /* width: 100px; */
+    flex-grow: 2;
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-result .new-game-btn{
+    padding-right: 8px;
+
+    flex-grow: 1;
 }
